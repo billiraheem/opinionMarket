@@ -133,16 +133,6 @@ export const Header: React.FC<HeaderProps> = ({
             <Wallet className="size-4 text-brand-500" />
             <span>Deposit Funds</span>
           </button>
-          <div className="pt-2 border-t border-slate-100 dark:border-[#222222] flex items-center justify-between">
-            <span className="text-xs text-slate-500 dark:text-neutral-400">Theme</span>
-            <button
-              onClick={toggleTheme}
-              className="flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-medium bg-slate-100 dark:bg-[#181818]"
-            >
-              {theme === 'dark' ? <Sun className="size-3.5 text-amber-400" /> : <Moon className="size-3.5 text-slate-600" />}
-              <span>{theme === 'dark' ? 'Light Mode' : 'Dark Mode'}</span>
-            </button>
-          </div>
         </div>
       )}
     </header>

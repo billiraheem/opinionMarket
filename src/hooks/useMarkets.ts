@@ -84,7 +84,7 @@ export function useMarkets() {
 
   const setCategory = (newCat: MarketCategory) => {
     setCategoryState(newCat);
-    setCurrentPage(1); // reset to page 1
+    setCurrentPage(1);
   };
 
   const setSearch = (query: string) => {

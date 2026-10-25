@@ -282,7 +282,6 @@ const primeMarkets: Market[] = [
   },
 ];
 
-// Procedural generator to guarantee 360+ authentic markets across all categories
 const topicBlueprints = [
   // Sports Blueprints
   {

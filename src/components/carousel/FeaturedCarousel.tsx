@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Clock, ChevronLeft, ChevronRight } from 'lucide-react';
 import type { Market, TradeTicket } from '../../types/market';
 import { useCountdown } from '../../hooks/useCountdown';
@@ -15,21 +15,53 @@ export const FeaturedCarousel: React.FC<FeaturedCarouselProps> = ({
   onOpenTrade
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [progress, setProgress] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+
+  const handlePrev = useCallback(() => {
+    setProgress(0);
+    setCurrentIndex(prev => (prev === 0 ? markets.length - 1 : prev - 1));
+  }, [markets.length]);
+
+  const handleNext = useCallback(() => {
+    setProgress(0);
+    setCurrentIndex(prev => (prev === markets.length - 1 ? 0 : prev + 1));
+  }, [markets.length]);
+
+  const handleSelect = useCallback((idx: number) => {
+    setProgress(0);
+    setCurrentIndex(idx);
+  }, []);
+
+  useEffect(() => {
+    if (isPaused || markets.length <= 1) return;
+
+    const interval = setInterval(() => {
+      setProgress(prev => prev + 1);
+    }, 50);
+
+    return () => clearInterval(interval);
+  }, [isPaused, markets.length]);
+
+  useEffect(() => {
+    if (progress >= 100) {
+      setProgress(0);
+      setCurrentIndex(prev => (prev === markets.length - 1 ? 0 : prev + 1));
+    }
+  }, [progress, markets.length]);
 
   if (!markets || markets.length === 0) return null;
 
   const currentMarket = markets[currentIndex] || markets[0];
 
-  const handlePrev = () => {
-    setCurrentIndex(prev => (prev === 0 ? markets.length - 1 : prev - 1));
-  };
-
-  const handleNext = () => {
-    setCurrentIndex(prev => (prev === markets.length - 1 ? 0 : prev + 1));
-  };
-
   return (
-    <section className="w-full mb-6 sm:mb-8">
+    <section
+      className="w-full mb-6 sm:mb-8"
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+      onTouchStart={() => setIsPaused(true)}
+      onTouchEnd={() => setIsPaused(false)}
+    >
       <div className="flex items-center justify-between mb-2.5">
         <p className="text-[11px] font-bold uppercase tracking-wider text-slate-500 dark:text-dark-muted">
           {sectionTitle}
@@ -43,17 +75,28 @@ export const FeaturedCarousel: React.FC<FeaturedCarouselProps> = ({
 
       <div className="mt-3 flex items-center justify-between px-1">
         <div className="flex items-center gap-1.5">
-          {markets.map((_, idx) => (
-            <button
-              key={idx}
-              onClick={() => setCurrentIndex(idx)}
-              className={`h-1.5 transition-all duration-300 rounded-full ${currentIndex === idx
-                  ? 'w-6 bg-slate-900 dark:bg-white'
-                  : 'w-1.5 bg-slate-300 dark:bg-neutral-800 hover:bg-slate-400'
+          {markets.map((_, idx) => {
+            const isActive = currentIndex === idx;
+            return (
+              <button
+                key={idx}
+                onClick={() => handleSelect(idx)}
+                className={`h-1.5 transition-all duration-300 rounded-full relative overflow-hidden ${
+                  isActive
+                    ? 'w-10 bg-slate-200 dark:bg-neutral-800'
+                    : 'w-2 bg-slate-300 dark:bg-neutral-800 hover:bg-slate-400'
                 }`}
-              aria-label={`Go to slide ${idx + 1}`}
-            />
-          ))}
+                aria-label={`Go to slide ${idx + 1}`}
+              >
+                {isActive && (
+                  <span
+                    className="absolute inset-y-0 left-0 bg-slate-900 dark:bg-white rounded-full transition-all duration-75"
+                    style={{ width: `${Math.min(100, Math.max(0, progress))}%` }}
+                  />
+                )}
+              </button>
+            );
+          })}
         </div>
 
         <div className="flex items-center gap-1.5">
@@ -190,8 +233,13 @@ const CarouselSlideCard: React.FC<CarouselSlideCardProps> = ({ market, onOpenTra
         <div className="relative min-h-[220px] md:min-h-[280px] bg-slate-950 text-white p-6 flex flex-col justify-between border-t md:border-t-0 md:border-l border-slate-200 dark:border-[#222222] overflow-hidden">
           {market.promoImage === 'MATCHDAY_BANNER' ? (
             <>
-              <div className="absolute -left-10 top-1/2 -translate-y-1/2 size-40 rounded-full bg-blue-600/25 blur-3xl pointer-events-none" />
-              <div className="absolute -right-10 top-1/2 -translate-y-1/2 size-40 rounded-full bg-amber-500/20 blur-3xl pointer-events-none" />
+              <div
+                className="absolute inset-0 bg-cover bg-center bg-no-repeat pointer-events-none"
+                style={{ backgroundImage: "url('/FCBvsRMA.jpeg')" }}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/75 to-slate-950/60 pointer-events-none" />
+              <div className="absolute -left-10 top-1/2 -translate-y-1/2 size-40 rounded-full bg-blue-600/30 blur-3xl pointer-events-none" />
+              <div className="absolute -right-10 top-1/2 -translate-y-1/2 size-40 rounded-full bg-amber-500/25 blur-3xl pointer-events-none" />
               <svg className="absolute inset-0 size-full opacity-10 pointer-events-none" viewBox="0 0 300 280" fill="none" stroke="currentColor">
                 <rect x="15" y="15" width="270" height="250" rx="8" strokeWidth="1.5" />
                 <circle cx="150" cy="140" r="45" strokeWidth="1.5" />
@@ -256,8 +304,13 @@ const CarouselSlideCard: React.FC<CarouselSlideCardProps> = ({ market, onOpenTra
             </>
           ) : (
             <>
-              <div className="absolute -left-10 top-1/2 -translate-y-1/2 size-40 rounded-full bg-emerald-500/20 blur-3xl pointer-events-none" />
-              <div className="absolute -right-10 top-1/2 -translate-y-1/2 size-40 rounded-full bg-sky-500/20 blur-3xl pointer-events-none" />
+              <div
+                className="absolute inset-0 bg-cover bg-center bg-no-repeat pointer-events-none"
+                style={{ backgroundImage: "url('/election.jpeg')" }}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/80 to-slate-950/65 pointer-events-none" />
+              <div className="absolute -left-10 top-1/2 -translate-y-1/2 size-40 rounded-full bg-emerald-500/25 blur-3xl pointer-events-none" />
+              <div className="absolute -right-10 top-1/2 -translate-y-1/2 size-40 rounded-full bg-sky-500/25 blur-3xl pointer-events-none" />
               <svg className="absolute inset-0 size-full opacity-10 pointer-events-none" viewBox="0 0 300 280" fill="none" stroke="currentColor">
                 <pattern id="ballot-pattern" width="20" height="20" patternUnits="userSpaceOnUse">
                   <path d="M 20 0 L 0 0 0 20" fill="none" stroke="currentColor" strokeWidth="0.5" />
