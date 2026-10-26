@@ -1,16 +1,16 @@
 import React, { useRef } from 'react';
 import {
-  Flame,
-  Trophy,
-  Landmark,
-  Film,
-  Coins,
-  Globe2,
+  Category,
+  Flash,
+  Cup,
+  Bank,
+  VideoPlay,
+  Coin,
+  Global,
   Cpu,
-  ChevronRight,
-  ChevronLeft,
-  LayoutGrid
-} from 'lucide-react';
+  ArrowRight2,
+  ArrowLeft2
+} from 'iconsax-react';
 import type { MarketCategory } from '../../types/market';
 
 interface CategoryBarProps {
@@ -31,14 +31,14 @@ export const CategoryBar: React.FC<CategoryBarProps> = ({
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 
   const categories: CategoryItem[] = [
-    { id: 'all', label: 'All Markets', icon: <LayoutGrid className="size-3.5" /> },
-    { id: 'trending', label: 'Trending', icon: <Flame className="size-3.5" /> },
-    { id: 'sports', label: 'Sports', icon: <Trophy className="size-3.5" /> },
-    { id: 'politics', label: 'Politics', icon: <Landmark className="size-3.5" /> },
-    { id: 'finance', label: 'Economy & Finance', icon: <Coins className="size-3.5" /> },
-    { id: 'entertainment', label: 'Entertainment', icon: <Film className="size-3.5" /> },
-    { id: 'world', label: 'World Events', icon: <Globe2 className="size-3.5" /> },
-    { id: 'tech', label: 'Technology', icon: <Cpu className="size-3.5" /> },
+    { id: 'all', label: 'All Markets', icon: <Category size="18" className="size-4 shrink-0" /> },
+    { id: 'trending', label: 'Trending', icon: <Flash size="18" className="size-4 shrink-0" /> },
+    { id: 'sports', label: 'Sports', icon: <Cup size="18" className="size-4 shrink-0" /> },
+    { id: 'politics', label: 'Politics', icon: <Bank size="18" className="size-4 shrink-0" /> },
+    { id: 'finance', label: 'Economy & Finance', icon: <Coin size="18" className="size-4 shrink-0" /> },
+    { id: 'entertainment', label: 'Entertainment', icon: <VideoPlay size="18" className="size-4 shrink-0" /> },
+    { id: 'world', label: 'World Events', icon: <Global size="18" className="size-4 shrink-0" /> },
+    { id: 'tech', label: 'Technology', icon: <Cpu size="18" className="size-4 shrink-0" /> },
   ];
 
   const scroll = (direction: 'left' | 'right') => {
@@ -56,7 +56,7 @@ export const CategoryBar: React.FC<CategoryBarProps> = ({
           className="hidden sm:flex shrink-0 p-1.5 rounded-full hover:bg-slate-100 dark:hover:bg-[#161616] text-slate-400 hover:text-slate-700 dark:hover:text-white transition-colors mr-1"
           aria-label="Scroll categories left"
         >
-          <ChevronLeft className="size-4" />
+          <ArrowLeft2 size="16" className="size-4" />
         </button>
 
         <div
@@ -87,7 +87,7 @@ export const CategoryBar: React.FC<CategoryBarProps> = ({
             className="p-1.5 rounded-full hover:bg-slate-100 dark:hover:bg-[#161616] text-slate-400 hover:text-slate-700 dark:hover:text-white transition-colors"
             aria-label="Scroll categories right"
           >
-            <ChevronRight className="size-4" />
+            <ArrowRight2 size="16" className="size-4" />
           </button>
         </div>
       </div>

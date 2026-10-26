@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { X, ArrowRight, ArrowLeft, ShieldCheck, CheckCircle2 } from 'lucide-react';
+import { CloseCircle, ArrowRight, ArrowLeft, ShieldTick, TickCircle } from 'iconsax-react';
 
 interface HowItWorksModalProps {
   isOpen: boolean;
@@ -89,7 +89,7 @@ export const HowItWorksModal: React.FC<HowItWorksModalProps> = ({ isOpen, onClos
         <div className="p-3.5 rounded-xl border border-slate-200 dark:border-[#222222] bg-white dark:bg-[#141414] shadow-sm space-y-2">
           <div className="flex items-center justify-between text-xs">
             <span className="flex items-center gap-1.5 text-emerald-600 dark:text-emerald-400 font-semibold">
-              <CheckCircle2 className="size-4" />
+              <TickCircle size="16" className="size-4" />
               Outcome Resolved: YES
             </span>
             <span className="text-xs font-bold font-mono text-emerald-600 dark:text-emerald-400">Settled at ₦1,000/share</span>
@@ -117,7 +117,7 @@ export const HowItWorksModal: React.FC<HowItWorksModalProps> = ({ isOpen, onClos
           className="absolute right-5 top-5 p-1.5 rounded-full text-slate-400 hover:text-slate-600 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-[#1A1A1A] transition-colors"
           aria-label="Close modal"
         >
-          <X className="size-5" />
+          <CloseCircle size="20" className="size-5" />
         </button>
         <div className="mb-5">
           <h2 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">
@@ -171,7 +171,7 @@ export const HowItWorksModal: React.FC<HowItWorksModalProps> = ({ isOpen, onClos
         </div>
 
         <div className="mt-5 flex items-center gap-2 text-xs font-medium text-emerald-600 dark:text-emerald-400">
-          <ShieldCheck className="size-4 shrink-0" />
+          <ShieldTick size="16" className="size-4 shrink-0" />
           <span>Transparent smart settlements · Secured with licensed Nigerian payment gateways.</span>
         </div>
 
@@ -182,7 +182,7 @@ export const HowItWorksModal: React.FC<HowItWorksModalProps> = ({ isOpen, onClos
               onClick={() => setCurrentStep(prev => prev - 1)}
               className="px-4 py-2.5 rounded-xl font-medium text-xs sm:text-sm text-slate-600 dark:text-neutral-300 hover:text-slate-900 dark:hover:text-white border border-slate-200 dark:border-[#222222] hover:bg-slate-100 dark:hover:bg-[#1A1A1A] transition-all flex items-center gap-1.5"
             >
-              <ArrowLeft className="size-4" />
+              <ArrowLeft size="16" className="size-4" />
               <span>Back</span>
             </button>
           ) : (
@@ -196,7 +196,7 @@ export const HowItWorksModal: React.FC<HowItWorksModalProps> = ({ isOpen, onClos
               className="px-6 py-2.5 rounded-xl font-semibold text-xs sm:text-sm text-white bg-brand-500 hover:bg-brand-600 shadow-md hover:shadow-brand-glow transition-all flex items-center gap-2 ml-auto"
             >
               <span>Next</span>
-              <ArrowRight className="size-4" />
+              <ArrowRight size="16" className="size-4" />
             </button>
           ) : (
             <button
@@ -205,7 +205,7 @@ export const HowItWorksModal: React.FC<HowItWorksModalProps> = ({ isOpen, onClos
               className="px-6 py-2.5 rounded-xl font-semibold text-xs sm:text-sm text-white bg-brand-500 hover:bg-brand-600 shadow-md hover:shadow-brand-glow transition-all flex items-center gap-2 ml-auto"
             >
               <span>Got It, Start Trading</span>
-              <ArrowRight className="size-4" />
+              <ArrowRight size="16" className="size-4" />
             </button>
           )}
         </div>

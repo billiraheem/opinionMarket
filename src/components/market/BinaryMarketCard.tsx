@@ -1,5 +1,5 @@
 import React from 'react';
-import { Clock, Bookmark, BookmarkCheck } from 'lucide-react';
+import { Clock, Bookmark, ArchiveTick } from 'iconsax-react';
 import type { Market, TradeTicket } from '../../types/market';
 import { useCountdown } from '../../hooks/useCountdown';
 import { MarketThumbnail } from './MarketThumbnail';
@@ -100,7 +100,7 @@ export const BinaryMarketCard: React.FC<BinaryMarketCardProps> = ({
             </span>
           )}
           <div className="flex items-center gap-1 text-[11px] text-slate-500 dark:text-neutral-400">
-            <Clock className="size-3 text-slate-400" />
+            <Clock size="13" className="size-3 text-slate-400" />
             <span className="font-mono font-medium">{countdown}</span>
           </div>
         </div>
@@ -112,9 +112,9 @@ export const BinaryMarketCard: React.FC<BinaryMarketCardProps> = ({
           aria-label="Bookmark"
         >
           {isBookmarked ? (
-            <BookmarkCheck className="size-4 text-brand-500 fill-brand-500" />
+            <ArchiveTick size="16" className="size-4 text-brand-500" variant="Bold" />
           ) : (
-            <Bookmark className="size-4" />
+            <Bookmark size="16" className="size-4" />
           )}
         </button>
       </div>

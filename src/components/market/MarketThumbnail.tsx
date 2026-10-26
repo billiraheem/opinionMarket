@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Trophy, Landmark, Coins, Film, Cpu, Globe2, HelpCircle } from 'lucide-react';
+import { Cup, Bank, Coin, VideoPlay, Cpu, Global, InfoCircle } from 'iconsax-react';
 import type { MarketCategory } from '../../types/market';
 
 interface MarketThumbnailProps {
@@ -15,37 +15,37 @@ export const MarketThumbnail: React.FC<MarketThumbnailProps> = ({ src, alt = '',
     switch (category) {
       case 'sports':
         return { 
-          icon: <Trophy className="size-5 text-blue-500 dark:text-blue-400" />, 
+          icon: <Cup size="20" className="size-5 text-blue-500 dark:text-blue-400" />, 
           bg: 'bg-blue-50 dark:bg-[#141414]' 
         };
       case 'politics':
         return { 
-          icon: <Landmark className="size-5 text-purple-500 dark:text-purple-400" />, 
+          icon: <Bank size="20" className="size-5 text-purple-500 dark:text-purple-400" />, 
           bg: 'bg-purple-50 dark:bg-[#141414]' 
         };
       case 'finance':
         return { 
-          icon: <Coins className="size-5 text-emerald-500 dark:text-emerald-400" />, 
+          icon: <Coin size="20" className="size-5 text-emerald-500 dark:text-emerald-400" />, 
           bg: 'bg-emerald-50 dark:bg-[#141414]' 
         };
       case 'entertainment':
         return { 
-          icon: <Film className="size-5 text-rose-500 dark:text-rose-400" />, 
+          icon: <VideoPlay size="20" className="size-5 text-rose-500 dark:text-rose-400" />, 
           bg: 'bg-rose-50 dark:bg-[#141414]' 
         };
       case 'tech':
         return { 
-          icon: <Cpu className="size-5 text-indigo-500 dark:text-indigo-400" />, 
+          icon: <Cpu size="20" className="size-5 text-indigo-500 dark:text-indigo-400" />, 
           bg: 'bg-indigo-50 dark:bg-[#141414]' 
         };
       case 'world':
         return { 
-          icon: <Globe2 className="size-5 text-cyan-500 dark:text-cyan-400" />, 
+          icon: <Global size="20" className="size-5 text-cyan-500 dark:text-cyan-400" />, 
           bg: 'bg-cyan-50 dark:bg-[#141414]' 
         };
       default:
         return { 
-          icon: <HelpCircle className="size-5 text-slate-400 dark:text-neutral-400" />, 
+          icon: <InfoCircle size="20" className="size-5 text-slate-400 dark:text-neutral-400" />, 
           bg: 'bg-slate-100 dark:bg-[#141414]' 
         };
     }

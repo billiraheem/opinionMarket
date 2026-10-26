@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Search, X, ChevronRight } from 'lucide-react';
+import { SearchNormal1, CloseCircle, ArrowRight2 } from 'iconsax-react';
 import type { Market } from '../../types/market';
 import { mockMarkets } from '../../data/mockMarkets';
 
@@ -52,7 +52,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({ isOpen, onClose, onSel
 
       <div className="relative w-full max-w-2xl rounded-2xl bg-white dark:bg-[#0E0E0E] border border-slate-200 dark:border-[#222222] shadow-2xl overflow-hidden z-10 animate-in zoom-in-95 duration-150">
         <div className="flex items-center px-4 py-3.5 border-b border-slate-100 dark:border-[#222222]">
-          <Search className="size-5 text-slate-400 shrink-0 mr-3" />
+          <SearchNormal1 size="20" className="size-5 text-slate-400 shrink-0 mr-3" />
           <input
             ref={inputRef}
             type="text"
@@ -66,7 +66,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({ isOpen, onClose, onSel
               onClick={() => setQuery('')}
               className="p-1 rounded-full text-slate-400 hover:text-slate-600 dark:hover:text-white"
             >
-              <X className="size-4" />
+              <CloseCircle size="16" className="size-4" />
             </button>
           )}
           <kbd className="hidden sm:inline-block ml-3 px-2 py-0.5 text-[11px] font-mono font-medium rounded border border-slate-200 dark:border-[#222222] bg-slate-100 dark:bg-[#1A1A1A] text-slate-500 dark:text-neutral-400">
@@ -116,7 +116,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({ isOpen, onClose, onSel
                     <span className="text-xs font-semibold px-2 py-1 rounded-md bg-slate-100 dark:bg-[#181818] text-slate-700 dark:text-neutral-300 border border-transparent dark:border-[#222222]">
                       {market.outcomes[0]?.probability}%
                     </span>
-                    <ChevronRight className="size-4 text-slate-400 group-hover:text-brand-500 group-hover:translate-x-0.5 transition-all" />
+                    <ArrowRight2 size="16" className="size-4 text-slate-400 group-hover:text-brand-500 group-hover:translate-x-0.5 transition-all" />
                   </div>
                 </div>
               ))}

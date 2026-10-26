@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Clock, Bookmark, BookmarkCheck, ChevronDown, ChevronUp } from 'lucide-react';
+import { Clock, Bookmark, ArchiveTick, ArrowDown2, ArrowUp2 } from 'iconsax-react';
 import type { Market, TradeTicket } from '../../types/market';
 import { useCountdown } from '../../hooks/useCountdown';
 import { MarketThumbnail } from './MarketThumbnail';
@@ -112,7 +112,7 @@ export const MultiOutcomeCard: React.FC<MultiOutcomeCardProps> = ({
             className="flex items-center gap-1 text-[11px] font-medium text-slate-500 dark:text-neutral-400 hover:text-brand-500 transition-colors mt-2"
           >
             <span>{isExpanded ? 'Show less' : `+${hiddenCount} more outcome${hiddenCount > 1 ? 's' : ''}`}</span>
-            {isExpanded ? <ChevronUp className="size-3" /> : <ChevronDown className="size-3" />}
+            {isExpanded ? <ArrowUp2 size="12" className="size-3" /> : <ArrowDown2 size="12" className="size-3" />}
           </button>
         )}
       </div>
@@ -126,7 +126,7 @@ export const MultiOutcomeCard: React.FC<MultiOutcomeCardProps> = ({
             </span>
           )}
           <div className="flex items-center gap-1 text-[11px] text-slate-500 dark:text-neutral-400">
-            <Clock className="size-3 text-slate-400" />
+            <Clock size="13" className="size-3 text-slate-400" />
             <span className="font-mono font-medium">{countdown}</span>
           </div>
         </div>
@@ -138,9 +138,9 @@ export const MultiOutcomeCard: React.FC<MultiOutcomeCardProps> = ({
           aria-label="Bookmark"
         >
           {isBookmarked ? (
-            <BookmarkCheck className="size-4 text-brand-500 fill-brand-500" />
+            <ArchiveTick size="16" className="size-4 text-brand-500" variant="Bold" />
           ) : (
-            <Bookmark className="size-4" />
+            <Bookmark size="16" className="size-4" />
           )}
         </button>
       </div>

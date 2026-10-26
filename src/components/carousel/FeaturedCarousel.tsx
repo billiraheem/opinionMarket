@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { Clock, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Clock, ArrowLeft2, ArrowRight2 } from 'iconsax-react';
 import type { Market, TradeTicket } from '../../types/market';
 import { useCountdown } from '../../hooks/useCountdown';
 
@@ -105,14 +105,14 @@ export const FeaturedCarousel: React.FC<FeaturedCarouselProps> = ({
             className="size-7 rounded-full border border-slate-200 dark:border-[#222222] bg-white dark:bg-[#111111] hover:bg-slate-100 dark:hover:bg-[#1A1A1A] text-slate-600 dark:text-neutral-300 flex items-center justify-center transition-colors shadow-sm"
             aria-label="Previous slide"
           >
-            <ChevronLeft className="size-3.5" />
+            <ArrowLeft2 size="14" className="size-3.5" />
           </button>
           <button
             onClick={handleNext}
             className="size-7 rounded-full border border-slate-200 dark:border-[#222222] bg-white dark:bg-[#111111] hover:bg-slate-100 dark:hover:bg-[#1A1A1A] text-slate-600 dark:text-neutral-300 flex items-center justify-center transition-colors shadow-sm"
             aria-label="Next slide"
           >
-            <ChevronRight className="size-3.5" />
+            <ArrowRight2 size="14" className="size-3.5" />
           </button>
         </div>
       </div>
@@ -218,7 +218,7 @@ const CarouselSlideCard: React.FC<CarouselSlideCardProps> = ({ market, onOpenTra
 
           <div className="mt-4 pt-3 border-t border-slate-100 dark:border-[#222222] flex items-center justify-between text-xs text-slate-500 dark:text-neutral-400">
             <div className="flex items-center gap-1.5">
-              <Clock className="size-3.5 text-slate-400" />
+              <Clock size="14" className="size-3.5 text-slate-400" />
               <span>Closes in</span>
               <span className="font-mono font-bold text-slate-800 dark:text-neutral-200">
                 {countdown}

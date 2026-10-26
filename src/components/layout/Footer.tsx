@@ -1,5 +1,5 @@
 import React from 'react';
-import { CreditCard, WalletCards, Landmark, ShieldCheck } from 'lucide-react';
+import { Card, Cards, Bank, ShieldTick } from 'iconsax-react';
 
 export const Footer: React.FC = () => {
   return (
@@ -21,7 +21,7 @@ export const Footer: React.FC = () => {
               The premier event-driven prediction platform where your knowledge in politics, sports, and culture turns into measurable profit.
             </p>
             <div className="flex items-center gap-2 pt-1 text-[11px] font-semibold text-emerald-600 dark:text-emerald-400">
-              <ShieldCheck className="size-4" />
+              <ShieldTick size="16" className="size-4" />
               <span>18+ Trade Responsibly</span>
             </div>
           </div>
@@ -61,15 +61,15 @@ export const Footer: React.FC = () => {
             </p>
             <div className="grid grid-cols-3 gap-2 text-center text-[10px] font-semibold">
               <div className="p-2 rounded-lg bg-slate-50 dark:bg-[#111111] border border-slate-200 dark:border-[#222222] flex flex-col items-center gap-1">
-                <CreditCard className="size-4 text-brand-500" />
+                <Card size="16" className="size-4 text-brand-500" />
                 <span>Paystack</span>
               </div>
               <div className="p-2 rounded-lg bg-slate-50 dark:bg-[#111111] border border-slate-200 dark:border-[#222222] flex flex-col items-center gap-1">
-                <WalletCards className="size-4 text-emerald-500" />
+                <Cards size="16" className="size-4 text-emerald-500" />
                 <span>Flutterwave</span>
               </div>
               <div className="p-2 rounded-lg bg-slate-50 dark:bg-[#111111] border border-slate-200 dark:border-[#222222] flex flex-col items-center gap-1">
-                <Landmark className="size-4 text-amber-500" />
+                <Bank size="16" className="size-4 text-amber-500" />
                 <span>GTBank</span>
               </div>
             </div>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Search, HelpCircle, Sun, Moon, Wallet, Menu, X } from 'lucide-react';
+import { SearchNormal1, InfoCircle, Sun1, Moon, Wallet2, HambergerMenu, CloseCircle } from 'iconsax-react';
 import { useTheme } from '../../context/ThemeContext';
 
 interface HeaderProps {
@@ -38,7 +38,7 @@ export const Header: React.FC<HeaderProps> = ({
             className="w-full flex items-center justify-between h-9 px-3.5 rounded-full border border-slate-200 dark:border-[#222222] bg-slate-100/70 dark:bg-[#101010] hover:border-brand-500/50 hover:bg-slate-100 dark:hover:bg-[#181818] text-xs sm:text-sm text-slate-500 dark:text-neutral-400 transition-all text-left group"
           >
             <div className="flex items-center gap-2.5">
-              <Search className="size-4 text-slate-400 group-hover:text-brand-500 transition-colors" />
+              <SearchNormal1 size="16" className="size-4 text-slate-400 group-hover:text-brand-500 transition-colors" />
               <span>Search markets, elections, football...</span>
             </div>
             <kbd className="hidden lg:inline-flex items-center justify-center size-5 text-[10px] font-mono font-semibold rounded border border-slate-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-slate-500 dark:text-neutral-400">
@@ -53,14 +53,14 @@ export const Header: React.FC<HeaderProps> = ({
             className="md:hidden p-2 rounded-xl text-slate-500 dark:text-neutral-400 hover:bg-slate-100 dark:hover:bg-[#161616]"
             aria-label="Open search"
           >
-            <Search className="size-4" />
+            <SearchNormal1 size="16" className="size-4" />
           </button>
 
           <button
             onClick={onOpenHowItWorks}
             className="hidden sm:flex items-center gap-1.5 text-xs font-medium text-slate-600 dark:text-neutral-300 hover:text-brand-500 dark:hover:text-blue-400 transition-colors px-2 py-1.5 rounded-lg"
           >
-            <HelpCircle className="size-4 text-brand-500" />
+            <InfoCircle size="16" className="size-4 text-brand-500" />
             <span>How it works</span>
           </button>
 
@@ -71,9 +71,9 @@ export const Header: React.FC<HeaderProps> = ({
             aria-label="Toggle theme"
           >
             {theme === 'dark' ? (
-              <Sun className="size-4 text-amber-400 animate-in spin-in-90 duration-300" />
+              <Sun1 size="16" className="size-4 text-amber-400 animate-in spin-in-90 duration-300" />
             ) : (
-              <Moon className="size-4 text-slate-600 animate-in spin-in-90 duration-300" />
+              <Moon size="16" className="size-4 text-slate-600 animate-in spin-in-90 duration-300" />
             )}
           </button>
 
@@ -81,7 +81,7 @@ export const Header: React.FC<HeaderProps> = ({
             onClick={onOpenDeposit}
             className="hidden sm:flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-slate-100 hover:bg-slate-200 dark:bg-[#121212] dark:hover:bg-[#1A1A1A] text-slate-800 dark:text-white border border-slate-200 dark:border-[#222222] transition-all"
           >
-            <Wallet className="size-3.5 text-brand-500" />
+            <Wallet2 size="15" className="size-3.5 text-brand-500" />
             <span>Deposit</span>
           </button>
 
@@ -99,18 +99,16 @@ export const Header: React.FC<HeaderProps> = ({
             Sign Up
           </button>
 
-          {/* Mobile Menu Toggle */}
           <button
             onClick={() => setMobileMenuOpen(prev => !prev)}
             className="lg:hidden p-2 rounded-xl text-slate-500 dark:text-neutral-400 hover:bg-slate-100 dark:hover:bg-[#161616]"
             aria-label="Toggle navigation menu"
           >
-            {mobileMenuOpen ? <X className="size-5" /> : <Menu className="size-5" />}
+            {mobileMenuOpen ? <CloseCircle size="20" className="size-5" /> : <HambergerMenu size="20" className="size-5" />}
           </button>
         </div>
       </div>
 
-      {/* Mobile Menu Dropdown */}
       {mobileMenuOpen && (
         <div className="lg:hidden border-b border-slate-200 dark:border-[#222222] bg-white dark:bg-[#101010] px-4 py-3 space-y-2 animate-in slide-in-from-top-2">
           <button
@@ -120,7 +118,7 @@ export const Header: React.FC<HeaderProps> = ({
             }}
             className="w-full flex items-center gap-2 py-2 text-sm font-medium text-slate-700 dark:text-neutral-200"
           >
-            <HelpCircle className="size-4 text-brand-500" />
+            <InfoCircle size="16" className="size-4 text-brand-500" />
             <span>How it works</span>
           </button>
           <button
@@ -130,7 +128,7 @@ export const Header: React.FC<HeaderProps> = ({
             }}
             className="w-full flex items-center gap-2 py-2 text-sm font-medium text-slate-700 dark:text-neutral-200"
           >
-            <Wallet className="size-4 text-brand-500" />
+            <Wallet2 size="16" className="size-4 text-brand-500" />
             <span>Deposit Funds</span>
           </button>
         </div>

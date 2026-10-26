@@ -19,6 +19,15 @@
     background-color: var(--color-bg);
     overflow-x: hidden;
   }
+
+  /* Support iconsax-react with React 19 defaultProps removal */
+  svg path[stroke-width] {
+    stroke: currentColor;
+  }
+
+  svg path:not([stroke-width]) {
+    fill: currentColor;
+  }
 }
 
 /* Custom Scrollbar */

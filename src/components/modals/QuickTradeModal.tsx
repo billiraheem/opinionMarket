@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { X, CheckCircle2, ArrowRight, Loader2 } from 'lucide-react';
+import { CloseCircle, TickCircle, ArrowRight, Refresh2 } from 'iconsax-react';
 import type { TradeTicket, OrderReceipt } from '../../types/market';
 import { marketService } from '../../services/marketService';
 
@@ -70,7 +70,7 @@ export const QuickTradeModal: React.FC<QuickTradeModalProps> = ({ ticket, onClos
           className="absolute right-4 top-4 p-1.5 rounded-full text-slate-400 hover:text-slate-600 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-[#1A1A1A] transition-colors"
           aria-label="Close modal"
         >
-          <X className="size-5" />
+          <CloseCircle size="20" className="size-5" />
         </button>
 
         {!receipt ? (
@@ -171,13 +171,13 @@ export const QuickTradeModal: React.FC<QuickTradeModalProps> = ({ ticket, onClos
             >
               {isSubmitting ? (
                 <>
-                  <Loader2 className="size-4 animate-spin" />
+                  <Refresh2 size="16" className="size-4 animate-spin" />
                   <span>Matching Market Order...</span>
                 </>
               ) : (
                 <>
                   <span>Confirm Trade (₦{amount.toLocaleString()})</span>
-                  <ArrowRight className="size-4" />
+                  <ArrowRight size="16" className="size-4" />
                 </>
               )}
             </button>
@@ -185,7 +185,7 @@ export const QuickTradeModal: React.FC<QuickTradeModalProps> = ({ ticket, onClos
         ) : (
           <div className="text-center py-4 animate-in fade-in zoom-in-95">
             <div className="size-14 rounded-full bg-emerald-100 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mx-auto mb-4 border border-emerald-200 dark:border-emerald-800">
-              <CheckCircle2 className="size-8" />
+              <TickCircle size="32" className="size-8" />
             </div>
 
             <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-1">

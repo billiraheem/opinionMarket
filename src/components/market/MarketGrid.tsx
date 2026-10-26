@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Bookmark, BookmarkCheck, SlidersHorizontal, ChevronDown, Check, RotateCcw } from 'lucide-react';
+import { Bookmark, ArchiveTick, SliderHorizontal, ArrowDown2, TickCircle, RotateLeft } from 'iconsax-react';
 import type { Market, SortOption, TradeTicket } from '../../types/market';
 import { BinaryMarketCard } from './BinaryMarketCard';
 import { MultiOutcomeCard } from './MultiOutcomeCard';
@@ -94,9 +94,9 @@ export const MarketGrid: React.FC<MarketGridProps> = ({
               aria-label="Filter and Sort markets"
               aria-expanded={isSortOpen}
             >
-              <SlidersHorizontal className="size-3.5 text-blue-500 dark:text-blue-400 shrink-0" />
+              <SliderHorizontal size="15" className="size-3.5 text-blue-500 dark:text-blue-400 shrink-0" />
               <span className="whitespace-nowrap transition-all duration-200">{currentSortLabel}</span>
-              <ChevronDown className={`size-3.5 text-blue-500/70 transition-transform duration-200 shrink-0 ${isSortOpen ? 'rotate-180' : ''}`} />
+              <ArrowDown2 size="14" className={`size-3.5 text-blue-500/70 transition-transform duration-200 shrink-0 ${isSortOpen ? 'rotate-180' : ''}`} />
             </button>
 
             {isSortOpen && (
@@ -116,7 +116,7 @@ export const MarketGrid: React.FC<MarketGridProps> = ({
                         }`}
                     >
                       <span>{opt.label}</span>
-                      {isSelected && <Check className="size-3.5 text-blue-500" />}
+                      {isSelected && <TickCircle size="14" className="size-3.5 text-blue-500" />}
                     </button>
                   );
                 })}
@@ -133,9 +133,9 @@ export const MarketGrid: React.FC<MarketGridProps> = ({
             title="Show saved markets"
           >
             {bookmarkedOnly ? (
-              <BookmarkCheck className="size-3.5" />
+              <ArchiveTick size="15" className="size-3.5" />
             ) : (
-              <Bookmark className="size-3.5" />
+              <Bookmark size="15" className="size-3.5" />
             )}
             <span className="hidden sm:inline">Bookmarks</span>
           </button>
@@ -147,7 +147,7 @@ export const MarketGrid: React.FC<MarketGridProps> = ({
               className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold text-rose-600 dark:text-rose-400 bg-rose-500/10 hover:bg-rose-500/20 border border-rose-500/30 dark:border-rose-500/30 transition-all cursor-pointer animate-in fade-in"
               title="Clear All Markets filters"
             >
-              <RotateCcw className="size-3.5" />
+              <RotateLeft size="15" className="size-3.5" />
               <span>Clear filters</span>
             </button>
           )}
@@ -173,7 +173,7 @@ export const MarketGrid: React.FC<MarketGridProps> = ({
               onClick={handleClearSectionFilters}
               className="mt-4 px-4 py-2 rounded-xl text-xs font-semibold text-white bg-brand-500 hover:bg-brand-600 transition-all inline-flex items-center gap-1.5 shadow-sm"
             >
-              <RotateCcw className="size-3.5" />
+              <RotateLeft size="15" className="size-3.5" />
               <span>Clear filters</span>
             </button>
           )}

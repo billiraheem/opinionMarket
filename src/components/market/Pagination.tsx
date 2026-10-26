@@ -1,5 +1,5 @@
 import React from 'react';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { ArrowLeft2, ArrowRight2 } from 'iconsax-react';
 
 interface PaginationProps {
   currentPage: number;
@@ -74,7 +74,7 @@ export const Pagination: React.FC<PaginationProps> = ({
           className="flex items-center gap-1 px-3 py-1.5 rounded-xl border border-slate-200 dark:border-[#222222] bg-white dark:bg-[#111111] text-xs font-medium text-slate-700 dark:text-neutral-300 hover:bg-slate-100 dark:hover:bg-[#1A1A1A] disabled:opacity-40 disabled:cursor-not-allowed transition-all shadow-sm"
           aria-label="Previous page"
         >
-          <ChevronLeft className="size-3.5" />
+          <ArrowLeft2 size="14" className="size-3.5" />
           <span className="hidden sm:inline">Prev</span>
         </button>
 
@@ -111,7 +111,7 @@ export const Pagination: React.FC<PaginationProps> = ({
           aria-label="Next page"
         >
           <span className="hidden sm:inline">Next</span>
-          <ChevronRight className="size-3.5" />
+          <ArrowRight2 size="14" className="size-3.5" />
         </button>
       </div>
     </div>

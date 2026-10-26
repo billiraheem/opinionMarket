@@ -1,5 +1,5 @@
 import React from 'react';
-import { Flame, TrendingUp, CheckCircle2 } from 'lucide-react';
+import { Flash, TrendUp, TickCircle } from 'iconsax-react';
 import type { SidebarData, TradeTicket } from '../../types/market';
 
 interface SidebarProps {
@@ -15,7 +15,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ data, onOpenTrade }) => {
       <div className="rounded-2xl border border-slate-200/90 dark:border-[#222222] bg-white dark:bg-[#0E0E0E] p-4 sm:p-5 shadow-card-light dark:shadow-card-dark transition-all">
         <div className="flex items-center gap-2 mb-3.5 pb-2.5 border-b border-slate-100 dark:border-[#222222]">
           <div className="size-6 rounded-lg bg-orange-500/10 text-orange-500 flex items-center justify-center">
-            <Flame className="size-3.5" />
+            <Flash size="15" className="size-3.5" />
           </div>
           <h3 className="text-sm font-bold text-slate-900 dark:text-white">
             Latest Markets
@@ -47,7 +47,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ data, onOpenTrade }) => {
       <div className="rounded-2xl border border-slate-200/90 dark:border-[#222222] bg-white dark:bg-[#0E0E0E] p-4 sm:p-5 shadow-card-light dark:shadow-card-dark transition-all">
         <div className="flex items-center gap-2 mb-3 pb-2.5 border-b border-slate-100 dark:border-[#222222]">
           <div className="size-6 rounded-lg bg-amber-500/10 text-amber-500 flex items-center justify-center">
-            <TrendingUp className="size-3.5" />
+            <TrendUp size="15" className="size-3.5" />
           </div>
           <h3 className="text-sm font-bold text-slate-900 dark:text-white">
             Hot Topics
@@ -96,7 +96,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ data, onOpenTrade }) => {
       <div className="rounded-2xl border border-slate-200/90 dark:border-[#222222] bg-white dark:bg-[#0E0E0E] p-4 sm:p-5 shadow-card-light dark:shadow-card-dark transition-all">
         <div className="flex items-center gap-2 mb-3.5 pb-2.5 border-b border-slate-100 dark:border-[#222222]">
           <div className="size-6 rounded-lg bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center">
-            <CheckCircle2 className="size-3.5" />
+            <TickCircle size="15" className="size-3.5" />
           </div>
           <h3 className="text-sm font-bold text-slate-900 dark:text-white">
             Recently Resolved
